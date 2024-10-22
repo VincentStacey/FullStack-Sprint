@@ -7,7 +7,7 @@
     "start": "node --watch index.js",
     "test": "jest"
   },
-  "author": "Matthew English",
+  "author": "Vincent Stacey, Liam Forsey, Jack Morris",
   "license": "MIT",
   "dependencies": {
     "ejs": "^3.1.10",

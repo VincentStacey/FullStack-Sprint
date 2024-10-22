@@ -21,3 +21,48 @@ body {
 .main-content h1 {
     font-size: 50px;
 }
+
+
+/* Style for the navigation bar */
+.navbar {
+    display: flex;
+    justify-content: space-evenly; /* Spaces the buttons evenly across the navbar */
+    align-items: center;
+    background-color: #333; /* Dark background for the navbar */
+    padding: 1rem;
+    position: sticky;
+    top: 0; /* Navbar stays at the top when scrolling */
+    z-index: 1000; /* Ensures the navbar is always on top */
+  }
+  
+  /* Style for the navigation buttons */
+  .nav-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #1a73e8; /* Blue background for buttons */
+    color: white;
+    text-decoration: none;
+    border-radius: 25px; /* Rounded corners */
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  /* Hover effect for buttons */
+  .nav-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    cursor: pointer;
+  }
+  
+  /* Responsive: Stack buttons vertically on small screens */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+    }
+  
+    .nav-button {
+      margin-bottom: 1rem;
+    }
+  }
+  
