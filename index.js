@@ -18,6 +18,20 @@ app.get('/movie/:id', (request, response) => {
     const movieId = request.params.id;
 });
 
+app.get('/movies', (req, res) => {
+    const genre = req.query.genre || Genres.SCI_FI; 
+    const count = parseInt(req.query.count) || 5;
+
+    try {
+        const movies = getMoviesByGenre(genre, count);
+        res.render('movies', { genre, movies, Genres });  
+    } catch (error) {
+        res.status(400).send(error.message);  
+    }
+});
+
+
+
 //Add remaining routes here
 
 const port = 3000;

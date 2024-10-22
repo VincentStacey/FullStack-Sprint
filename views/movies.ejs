@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>Movies by Genre</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <!-- Add a wrapper for the movies genre area -->
+    <div class="movies-genre-section">
+        <h1>Movies in the <%= genre %> Genre</h1>
+        <ul>
+            <% movies.forEach(movie => { %>
+                <li><strong><%= movie.title %></strong> (Year: <%= movie.releaseYear %>)(Description: <%= movie.description %>)(Director: <%= movie.director %>)(Rating: <%= movie.rating %>)</li>
+            <% }) %>
+        </ul>
+
+        <form action="/movies" method="GET">
+            <label for="genre">Select Genre:</label>
+            <select name="genre" id="genre">
+                <% Object.values(Genres).forEach(g => { %>
+                    <option value="<%= g %>" <%= genre === g ? 'selected' : '' %>><%= g %></option>
+                <% }) %>
+            </select>
+
+            <label for="count">Number of Movies:</label>
+            <input type="number" name="count" id="count" value="<%= movies.length %>" min="1" max="10">
+            <button type="submit">Get Movies</button>
+        </form>
+    </div>
+</body>
+</html>

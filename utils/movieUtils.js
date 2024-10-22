@@ -7,7 +7,11 @@ const { Movies, Genres } = require("./data");
  * @returns {Array.<Movies>} - An array of movies matching the genre
  */
 function getMoviesByGenre(genre, x) {
-    
+    if (!Object.values(Genres).includes(genre)) {
+        throw new Error("Invalid genre provided.");
+    }
+    const filteredMovies = Movies.filter(movie => movie.genre === genre);
+    return filteredMovies.slice(0, x);
 }
 
 /**
