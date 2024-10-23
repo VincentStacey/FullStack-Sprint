@@ -270,3 +270,46 @@ p strong {
   color: #333;
 }
 
+/* Styling for the movie grid */
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  justify-items: center;
+}
+
+/* Styling for each movie card */
+.movie-card {
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+}
+
+.movie-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-card p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.movie-card a {
+  color: #1a73e8; /* Blue color for movie title link */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.movie-card a:hover {
+  color: #0056b3; /* Darker blue on hover */
+}

@@ -1,13 +1,32 @@
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Movie Gallery</title>
-        <link rel="stylesheet" type="text/css" href="./styles.css">
-    </head>
-    <body>
-        <%- include('partials/header') %>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Movie Rental System</title>
+  <link rel="stylesheet" href="/styles.css"> 
+</head>
+<body>
+    <%- include('partials/header') %>
+  <header>
+    <h1>Movie Gallery</h1>
+  </header>
 
-        <main class="main-content">
-            <h1>Movie Gallery</h1>
-        </main>
-    </body>
+  <main>
+    <div class="movies-grid">
+      <% if (randomMovies.length > 0) { %>
+        <% randomMovies.forEach(movie => { %>
+          <div class="movie-card">
+            <h2><a href="/movies"><%= movie.title %></a></h2> 
+            <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+            <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p>No movies available.</p>
+      <% } %>
+    </div>
+  </main>
+
+</body>
 </html>

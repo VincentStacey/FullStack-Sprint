@@ -57,6 +57,15 @@ function getRandomUpcomingMovies() {
     return Movies.filter(movie => selectedMovieIds.has(movie.id));
 }
 
+function getRandomMovies() {
+    const selectedMovieIds = new Set();
+    while (selectedMovieIds.size < 9) {
+      const randomId = Math.floor(Math.random() * Movies.length); 
+      selectedMovieIds.add(Movies[randomId].id); 
+    }
+    
+    return Movies.filter(movie => selectedMovieIds.has(movie.id)); 
+  }
 
 // Export the functions to be used in other modules
 module.exports = {
@@ -65,4 +74,5 @@ module.exports = {
     getMovieDetailsById,
     selectRandomMovieId,
     getRandomUpcomingMovies,
+    getRandomMovies,
 };

@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getTopRatedMovies, getMoviesByGenre, getMovieDetailsById, selectRandomMovieId, getRandomUpcomingMovies, } = require('./utils/movieUtils');
+const { getTopRatedMovies, getMoviesByGenre, getRandomUpcomingMovies,getRandomMovies} = require('./utils/movieUtils');
 const { Movies, Genres } = require('./utils/data');
 
 const app = express();
@@ -9,13 +9,19 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 
-app.get('/', (request, response) => {
-    response.render('index');
-});
-
 app.get('/movie/:id', (request, response) => {
     //For use with links like: /movie/1
     const movieId = request.params.id;
+});
+
+app.get('/', (req, res) => {
+  try {
+    const randomMovies = getRandomMovies(); 
+    res.render('index', { randomMovies }); 
+  } catch (err) {
+    console.error('Error fetching random movies:', err);
+    res.status(500).send('Error fetching random movies');
+  }
 });
 
 app.get('/movies', (req, res) => {
@@ -39,7 +45,7 @@ app.get('/topRatedMovies', (req, res) => {
     const randomUpcomingMovies = getRandomUpcomingMovies();
     res.render('upcoming-movies', { movies: randomUpcomingMovies });
 });
-  
+
 //Add remaining routes here
 
 const port = 3000;
