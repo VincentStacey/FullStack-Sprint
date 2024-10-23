@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const { getTopRatedMovies, getMoviesByGenre, getMovieDetailsById, selectRandomMovieId } = require('./utils/movieUtils');
+const { getTopRatedMovies, getMoviesByGenre, getMovieDetailsById, selectRandomMovieId, getRandomUpcomingMovies, } = require('./utils/movieUtils');
 const { Movies, Genres } = require('./utils/data');
 
 const app = express();
@@ -30,8 +30,16 @@ app.get('/movies', (req, res) => {
     }
 });
 
+app.get('/topRatedMovies', (req, res) => {
+    const topRatedMovies = getTopRatedMovies(15);
+    res.render('topRatedMovies', { movies: topRatedMovies });
+});
 
-
+  app.get('/upcoming-movies', (req, res) => {
+    const randomUpcomingMovies = getRandomUpcomingMovies();
+    res.render('upcoming-movies', { movies: randomUpcomingMovies });
+});
+  
 //Add remaining routes here
 
 const port = 3000;

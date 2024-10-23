@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>Upcoming Movies</title>
+    <%- include('partials/header') %>
+</head>
+<body>
+  <div class="upcoming-title-container">
+    <h1 class="upcoming-title">Upcoming Movies</h1>
+</div>
+<ul class="upcoming-movies-container">
+    <% movies.forEach(movie => { %>
+        <li>
+            <h2><a href="/movies"><%= movie.title %></a></h2>
+            <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+            <p><%= movie.description %></p>
+        </li>
+    <% }) %>
+</ul>
+
+  
+</body>
+</html>

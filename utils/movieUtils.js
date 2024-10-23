@@ -20,8 +20,10 @@ function getMoviesByGenre(genre, x) {
  * @returns {Array.<Movies>} - An array of top-rated movies
  */
 function getTopRatedMovies(x) {
-    // Implementation here
-}
+    return Movies
+        .sort((a, b) => b.rating - a.rating)  
+        .slice(0, x);           
+}         
 
 /**
  * Get the details of a movie by its ID
@@ -37,8 +39,24 @@ function getMovieDetailsById(id) {
  * @returns {number} - A random movie ID
  */
 function selectRandomMovieId() {
-    // Implementation here
+    const upcomingMovies = Movies.filter(movie => movie.rating === null);
+    const randomIndex = Math.floor(Math.random() * upcomingMovies.length);
+    return upcomingMovies[randomIndex].id;  
 }
+
+/**
+ * @returns {Array.<Movies>} - An array of 5 unique random upcoming movies
+ */
+function getRandomUpcomingMovies() {
+    const selectedMovieIds = new Set();
+    while (selectedMovieIds.size < 5) {
+        const randomId = selectRandomMovieId();
+        selectedMovieIds.add(randomId); 
+    }
+
+    return Movies.filter(movie => selectedMovieIds.has(movie.id));
+}
+
 
 // Export the functions to be used in other modules
 module.exports = {
@@ -46,4 +64,5 @@ module.exports = {
     getTopRatedMovies,
     getMovieDetailsById,
     selectRandomMovieId,
+    getRandomUpcomingMovies,
 };

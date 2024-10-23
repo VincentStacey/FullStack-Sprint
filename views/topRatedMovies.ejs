@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles.css">
+    <title>Top Rated Movies</title>
+    <%- include('partials/header') %>
+</head>
+<body>
+    <h1>Top Rated Movies</h1>
+    <ol class="top-rated-movies-list">
+        <% movies.forEach(movie => { %>
+            <li>
+                <h2><a href="/movies"><%= movie.title %></a></h2>
+                <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+                <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
+                <p><%= movie.description %></p>
+            </li>
+        <% }) %>
+    </ol>
+    
+</body>
+</html>
