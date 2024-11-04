@@ -8,19 +8,17 @@
     <%- include('partials/header') %>
 </head>
 <body>
-  <div class="upcoming-title-container">
-    <h1 class="upcoming-title">Upcoming Movies</h1>
-</div>
-<ul class="upcoming-movies-container">
-    <% movies.forEach(movie => { %>
-        <li>
-            <h2><a href="/movies"><%= movie.title %></a></h2>
-            <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
-            <p><%= movie.description %></p>
-        </li>
-    <% }) %>
-</ul>
-
-  
+    <div class="upcoming-movies-section">
+        <h1 class="upcoming-title">Upcoming Movies</h1>
+        <ul class="upcoming-movies-list">
+            <% movies.forEach(movie => { %>
+                <li class="movie-card">
+                    <h2><a href="/movies"><%= movie.title %></a></h2>
+                    <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+                    <p><%= movie.description %></p>
+                </li>
+            <% }) %>
+        </ul>
+    </div>
 </body>
 </html>

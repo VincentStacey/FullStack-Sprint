@@ -8,17 +8,18 @@
     <%- include('partials/header') %>
 </head>
 <body>
-    <h1>Top Rated Movies</h1>
-    <ol class="top-rated-movies-list">
-        <% movies.forEach(movie => { %>
-            <li>
-                <h2><a href="/movies"><%= movie.title %></a></h2>
-                <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
-                <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
-                <p><%= movie.description %></p>
-            </li>
-        <% }) %>
-    </ol>
-    
+    <div class="top-rated-movies-section">
+        <h1>Top Rated Movies</h1>
+        <ol class="top-rated-movies-list">
+            <% movies.forEach(movie => { %>
+                <li class="movie-item">
+                    <h2><a href="/movies"><%= movie.title %></a></h2>
+                    <p><strong>Release Year:</strong> <%= movie.releaseYear %></p>
+                    <p><strong>Rating:</strong> <%= movie.rating %>/10</p>
+                    <p><%= movie.description %></p>
+                </li>
+            <% }) %>
+        </ol>
+    </div>
 </body>
 </html>

@@ -54,6 +54,7 @@ body {
     cursor: pointer;
   }
   
+/* Movies Genre Section */  
 .movies-genre-section {
   background-color: #f4f4f4; 
   padding: 20px;
@@ -112,59 +113,62 @@ h1 {
   font-family: 'Arial', sans-serif;
 }
 
-ol.top-rated-movies-list {
-  list-style: decimal inside;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 900px;
+/* Top Rated Movies section */
+.top-rated-movies-section {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
-ol.top-rated-movies-list li {
-  background-color: #f7f7f7;
+.top-rated-movies-section h1 {
+  color: #333;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.top-rated-movies-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.top-rated-movies-list .movie-item {
+  background-color: #ffffff;
   margin: 20px 0;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  counter-increment: movie-counter;
-  position: relative;
 }
 
-ol.top-rated-movies-list li::before {
-  content: counter(movie-counter) ".";
-  font-size: 2.5em;
-  font-weight: bold;
-  position: absolute;
-  left: -40px;
-  top: 20px;
-  color: #007BFF;
-}
-
-h2 {
+.top-rated-movies-list .movie-item h2 {
   font-size: 1.8em;
   margin-bottom: 10px;
-  font-family: 'Arial', sans-serif;
 }
 
-h2 a {
+.top-rated-movies-list .movie-item h2 a {
   text-decoration: none;
   color: #0056b3;
   transition: color 0.3s ease, text-shadow 0.3s ease;
   font-weight: bold;
 }
 
-h2 a:hover {
+.top-rated-movies-list .movie-item h2 a:hover {
   color: #007BFF;
   text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
 }
 
-p {
+.top-rated-movies-list .movie-item p {
   font-size: 1em;
   color: #666;
   margin: 5px 0;
-  font-family: 'Arial', sans-serif;
 }
 
-p strong {
+.top-rated-movies-list .movie-item p strong {
   color: #333;
 }
 
@@ -209,107 +213,122 @@ p strong {
   color: #0056b3; 
 }
 
-.upcoming-title-container {
-  display: fixed;
-  justify-content: center;
-  margin-bottom: 40px;
+/* Upcoming Movies Section */
+.upcoming-movies-section {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
 }
 
-.upcoming-title {
-  font-size: 2.5em;
+.upcoming-movies-section h1 {
+  color: #333;
+  font-size: 2em;
   text-align: center;
-  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
 }
 
-.upcoming-movies-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.upcoming-movies-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
-.upcoming-movies-container li {
-  background-color: #f9f9f9;
-  margin: 20px;
-  padding: 20px;
-  width: 250px;
+.upcoming-movies-list .movie-card {
+  background-color: #ffffff;
+  padding: 5px;
+  margin: 15px 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
 }
 
-.upcoming-movies-container li:hover {
-  transform: scale(1.05);
+.upcoming-movies-list .movie-card:hover {
+  transform: translateY(-5px);
 }
 
-.upcoming-movies-container h2 {
-  font-size: 1.4em;
+.upcoming-movies-list .movie-card h2 {
+  font-size: 1.5em;
   margin-bottom: 10px;
-}
-
-.upcoming-movies-container h2 a {
-  text-decoration: none;
   color: #0056b3;
-  transition: color 0.3s ease;
   font-weight: bold;
 }
 
-.upcoming-movies-container h2 a:hover {
-  color: #007BFF;
+.upcoming-movies-list .movie-card h2 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-.upcoming-movies-container p {
+.upcoming-movies-list .movie-card h2 a:hover {
+  color: #007BFF;
+  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
+}
+
+.upcoming-movies-list .movie-card p {
   font-size: 1em;
   color: #666;
-  margin: 10px 0;
+  margin: 5px 0;
 }
 
-.upcoming-movies-container p strong {
+.upcoming-movies-list .movie-card p strong {
   color: #333;
 }
+
 
 /* Styling for the movie grid */
 .movies-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr); 
   gap: 1.5rem;
   padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
   justify-items: center;
 }
 
 /* Styling for each movie card */
 .movie-card {
-  background-color: #f0f0f0;
-  border-radius: 8px;
-  padding: 1.5rem;
-  width: 250px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
   text-align: center;
-  transition: transform 0.2s ease;
 }
 
 .movie-card:hover {
-  transform: translateY(-5px); /* Lift the card on hover */
+  transform: translateY(-5px);
 }
 
 .movie-card h2 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: #0056b3;
+  font-weight: bold;
+}
+
+.movie-card h2 a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.movie-card h2 a:hover {
+  color: #007BFF;
+  text-shadow: 1px 1px 5px rgba(0, 123, 255, 0.5);
 }
 
 .movie-card p {
-  font-size: 1rem;
+  font-size: 1em;
+  color: #666;
+  margin: 5px 0;
+}
+
+.movie-card p strong {
   color: #333;
-}
-
-.movie-card a {
-  color: #1a73e8; /* Blue color for movie title link */
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.movie-card a:hover {
-  color: #0056b3; /* Darker blue on hover */
 }
